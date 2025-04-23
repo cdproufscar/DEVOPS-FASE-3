@@ -1,0 +1,224 @@
+/* Reset geral */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal */
+main {
+    max-width: 700px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Título */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #14055d;
+    margin-bottom: 20px;
+}
+
+/* Formulário */
+.cad-prod form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Labels */
+.cad-prod label {
+    font-weight: bold;
+    text-align: left;
+    display: block;
+    color: #372784;
+    font-size: 16px;
+}
+
+/* Inputs e Textareas */
+.cad-prod input,
+.cad-prod textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Upload */
+.cad-prod input[type="file"] {
+    padding: 5px;
+}
+
+/* Estilização ao focar */
+.cad-prod input:focus,
+textarea:focus {
+    border-color: #14055d;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(20, 5, 93, 0.3);
+}
+
+/* Botões padrão */
+button {
+    background-color: #14055d;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #edb863;
+}
+
+/* Botão externo para adicionar componente */
+.btn-componente {
+    background-color: #14055d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+    transition: background 0.3s;
+}
+
+.btn-componente:hover {
+    background-color: #edb863;
+}
+
+/* Tabela de componentes */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #14055d;
+    color: white;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #eef;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    main {
+        max-width: 90%;
+        padding: 25px;
+    }
+
+    .cad-prod input,
+    .cad-prod textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cad-prod form {
+        gap: 10px;
+    }
+
+    .cad-prod input,
+    .cad-prod textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .btn-componente {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    table {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cad-prod .search-container {
+        width: 80%;
+    }
+
+    .cad-prod .search-box {
+        font-size: 14px;
+        width: 100%;
+    }
+}
+
+
+.mensagem-sucesso {
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .mensagem-erro {
+    background-color: #f8d7da;
+    color: #a94442;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .btn-excluir-comp {
+    padding: 6px 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    text-align: center
+  }
+  
+  .btn-excluir-comp:hover {
+    background-color: #39008a;
+  }
+  
+  

@@ -1,0 +1,177 @@
+/* Global.css - Estilos Globais do Assistiverse */
+
+/* Reset e estrutura base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+footer {
+  text-align: center;
+  padding: 1%;
+  background-color: #14055d;
+  color: white;
+  width: 100%;
+  position: relative;
+}
+
+/* Estilos gerais de títulos e botões */
+h1, h2 {
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #000;
+  background: none;
+  border: 2px solid #FFC72C;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.cta-button:hover {
+  background: #FFC72C;
+  color: #fff;
+}
+
+img, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilo da grade flexível */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.grid-item img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Estilo de formulário */
+#formCadastro {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: none;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#formCadastro .form-label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+#formCadastro input,
+#formCadastro textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+#formCadastro input:focus,
+#formCadastro textarea:focus {
+  border-color: #960000;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 150, 136, 0.2);
+}
+
+/* Botão de submissão */
+#btl {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #14055d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#btl:hover {
+  background-color: #edb863;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #formCadastro {
+    padding: 15px;
+    margin-left: 0;
+  }
+}
+
+.btn-voltar {
+  position: absolute;
+  top: 80px;
+  left: 30px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #14055d;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-voltar:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+
+  .btn-voltar {
+    top: 70px;
+    left: 15px;
+    font-size: 14px;
+  }
+}
+

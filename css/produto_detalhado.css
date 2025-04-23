@@ -1,0 +1,256 @@
+/* Container principal */
+.produto-container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  /* Nome do produto */
+  .produto-nome {
+    font-size: 28px;
+    font-weight: bold;
+    color: #14055d;
+    margin-bottom: 20px;
+  }
+  
+  /* Detalhes do produto */
+  .produto-detalhes {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Galeria de imagens */
+  .produto-imagens {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 10px;
+  }
+  
+  .produto-img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    border: 2px solid #14055d;
+  }
+  
+  /* Informações do produto */
+  .produto-info {
+    text-align: left;
+    max-width: 400px;
+  }
+  
+  .produto-info p {
+    font-size: 16px;
+    color: #333;
+    margin: 5px 0;
+  }
+  
+  .produto-info strong {
+    color: #14055d;
+  }
+  
+  /* Lista de arquivos */
+  .arquivos-lista {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .arquivos-lista li {
+    margin: 5px 0;
+  }
+  
+  .arquivos-lista a {
+    text-decoration: none;
+    color: #14055d;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .arquivos-lista a:hover {
+    color: #edb863;
+  }
+  
+  /* Botão voltar */
+  .btn-voltar {
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #14055d;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn-voltar:hover {
+    text-decoration: underline;
+  }
+  
+  /* Bloco do componente */
+  .componente-bloco {
+    background-color: #f9f9f9;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    text-align: left;
+  }
+  
+  .componente-bloco h3 {
+    color: #14055d;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .componente-bloco h4 {
+    color: #372784;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  
+  .componente-bloco p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  /* Lista dentro do componente */
+  .componente-bloco ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .componente-bloco ul li {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Galeria interna de imagens dos componentes */
+  .componente-bloco .produto-imagens {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .componente-bloco .produto-img {
+    width: 160px;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  /* Passos do componente */
+  .passo-bloco {
+    margin-top: 25px;
+    background-color: #f1f1fb;
+    border-left: 5px solid #14055d;
+    padding: 15px 20px;
+    border-radius: 8px;
+  }
+  
+  .passo-bloco h4 {
+    color: #14055d;
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .passo-bloco p {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Arquivo do passo */
+  .passo-arquivo a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #14055d;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .passo-arquivo a:hover {
+    color: #edb863;
+    text-decoration: underline;
+  }
+  
+  /* Dependências entre componentes */
+  .dependencias {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fff8e1;
+    border: 1px dashed #ffc107;
+    border-radius: 10px;
+  }
+  
+  .dependencias h4 {
+    font-size: 18px;
+    color: #b38f00;
+    margin-bottom: 10px;
+  }
+  
+  .dependencias ul {
+    margin-left: 20px;
+  }
+  
+  .dependencias li {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .produto-detalhes {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .produto-info {
+      text-align: center;
+    }
+  
+    .produto-imagens {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .componente-bloco .produto-imagens {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .componente-bloco .produto-img {
+      width: 90%;
+    }
+  
+    .btn-voltar {
+      top: 70px;
+      left: 15px;
+      font-size: 14px;
+    }
+  
+    .produto-nome {
+      font-size: 24px;
+    }
+  }
+  

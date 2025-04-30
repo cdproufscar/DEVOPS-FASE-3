@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $descricao = $_POST['descricao'];
         $para_quem = $_POST['para_quem'];
         $por_quem = $_POST['por_quem'];
+        $testado_por = $_POST['testado_por'] ?? null;
         $por_que = $_POST['por_que'];
         $para_que = $_POST['para_que'];
         $pre_requisitos = $_POST['pre_requisitos'];
@@ -57,9 +58,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Inserção do produto
         $stmt = $pdo->prepare("INSERT INTO produtos (
-            id_usuario, nome_produto, descricao, para_quem, por_quem, por_que, para_que, pre_requisitos, modo_de_uso, imagens, arquivos
+            id_usuario, nome_produto, descricao, para_quem, por_quem, testado_por, por_que, para_que, pre_requisitos, modo_de_uso, imagens, arquivos
         ) VALUES (
-            :id_usuario, :nome_produto, :descricao, :para_quem, :por_quem, :por_que, :para_que, :pre_requisitos, :modo_de_uso, :imagens, :arquivos
+            :id_usuario, :nome_produto, :descricao, :para_quem, :por_quem, :testado_por, :por_que, :para_que, :pre_requisitos, :modo_de_uso, :imagens, :arquivos
         )");
 
         $stmt->execute([
@@ -68,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ':descricao'      => $descricao,
             ':para_quem'      => $para_quem,
             ':por_quem'       => $por_quem,
+            ':testado_por'    => $testado_por,
             ':por_que'        => $por_que,
             ':para_que'       => $para_que,
             ':pre_requisitos' => $pre_requisitos,
@@ -81,7 +83,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Componentes temporários
         if (!empty($_SESSION['componentes_temp'])) {
             foreach ($_SESSION['componentes_temp'] as $comp) {
-                // Insere componente
                 $stmtComp = $pdo->prepare("INSERT INTO componentes (
                     id_produto, nome_componente, descricao, imagens, arquivos
                 ) VALUES (
@@ -98,7 +99,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $id_componente = $pdo->lastInsertId();
 
-                // Materiais do componente
                 if (!empty($comp['materiais'])) {
                     foreach ($comp['materiais'] as $id_material => $dados) {
                         $pdo->prepare("INSERT INTO componente_materiais (
@@ -113,7 +113,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
 
-                // Ferramentas do componente
                 if (!empty($comp['ferramentas'])) {
                     foreach ($comp['ferramentas'] as $id_ferramenta => $dados) {
                         $pdo->prepare("INSERT INTO componente_ferramentas (
@@ -127,7 +126,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     }
                 }
 
-                // Passo-a-passo
                 if (!empty($comp['passos'])) {
                     foreach ($comp['passos'] as $passo) {
                         $stmtPasso = $pdo->prepare("INSERT INTO passo_a_passo (
@@ -141,7 +139,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         $id_passo = $pdo->lastInsertId();
 
-                        // Materiais do passo
                         if (!empty($passo['materiais'])) {
                             foreach ($passo['materiais'] as $id_mat) {
                                 $pdo->prepare("INSERT INTO passo_materiais (
@@ -151,7 +148,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             }
                         }
 
-                        // Ferramentas do passo
                         if (!empty($passo['ferramentas'])) {
                             foreach ($passo['ferramentas'] as $id_ferr) {
                                 $pdo->prepare("INSERT INTO passo_ferramentas (

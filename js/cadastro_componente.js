@@ -147,11 +147,23 @@ function abrirModal(id) {
       return;
     }
   
-    const materiais = Array.from(document.querySelectorAll("#passo_materiais input:checked")).map(e => e.value);
-    const ferramentas = Array.from(document.querySelectorAll("#passo_ferramentas input:checked")).map(e => e.value);
+    const materiaisCheck = document.querySelectorAll("#passo_materiais input:checked");
+    const ferramentasCheck = document.querySelectorAll("#passo_ferramentas input:checked");
   
-    const matTexto = materiais.length ? materiais.join(', ') : "—";
-    const ferTexto = ferramentas.length ? ferramentas.join(', ') : "—";
+    const materiais = [], materiaisNomes = [];
+    materiaisCheck.forEach(cb => {
+      materiais.push(cb.value);
+      materiaisNomes.push(cb.parentElement.textContent.trim());
+    });
+  
+    const ferramentas = [], ferramentasNomes = [];
+    ferramentasCheck.forEach(cb => {
+      ferramentas.push(cb.value);
+      ferramentasNomes.push(cb.parentElement.textContent.trim());
+    });
+  
+    const matTexto = materiaisNomes.length ? materiaisNomes.join(', ') : "—";
+    const ferTexto = ferramentasNomes.length ? ferramentasNomes.join(', ') : "—";
   
     const id = Date.now();
     const tabela = document.getElementById("listaPassos");
@@ -167,12 +179,14 @@ function abrirModal(id) {
     `;
     tabela.appendChild(linha);
   
+    // Hidden inputs para submissão
     form.insertAdjacentHTML("beforeend", `
       <input type="hidden" name="passos[${id}][descricao]" value="${descricao}">
       ${materiais.map(m => `<input type="hidden" name="passos[${id}][materiais][]" value="${m}">`).join("")}
       ${ferramentas.map(f => `<input type="hidden" name="passos[${id}][ferramentas][]" value="${f}">`).join("")}
     `);
   
+    // Reset
     document.getElementById("descricao_passo").value = "";
     document.querySelectorAll("#passo_materiais input").forEach(cb => cb.checked = false);
     document.querySelectorAll("#passo_ferramentas input").forEach(cb => cb.checked = false);
@@ -180,6 +194,7 @@ function abrirModal(id) {
     numeroPasso++;
     fecharModal("modalPasso");
   }
+  
   
   // Exibir descrições
   function exibirDescricaoMaterial() {

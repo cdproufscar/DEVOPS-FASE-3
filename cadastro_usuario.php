@@ -24,72 +24,86 @@ if (session_status() === PHP_SESSION_NONE) {
   <h1>Cadastro de Usuário</h1>
   <form id="formCadastro" action="processa_cadastro_usuario.php" method="POST">
     
-    <label  for="nome"> <h3> Nome:</h3> </label>
+    <label for="nome"><h3>Nome:</h3></label>
     <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
     
-    <label for="email"> <h3> E-mail:</h3></label>
+    <label for="email"><h3>E-mail:</h3></label>
     <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
     
-    <label for="confirmar-email"> <h3>Confirmar Email: </h3></label>
+    <label for="confirmar-email"><h3>Confirmar Email:</h3></label>
     <input type="email" id="confirmar-email" name="confirmar_email" placeholder="Confirme seu e-mail" required>
     
-    <label for="senha">  <h3> Senha:</h3></label>
+    <label for="senha"><h3>Senha:</h3></label>
     <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
     
-    <label for="confirmar-senha"> <h3>Confirmar Senha:</h3>         </label>
+    <label for="confirmar-senha"><h3>Confirmar Senha:</h3></label>
     <input type="password" id="confirmar-senha" name="confirmar_senha" placeholder="Confirme sua senha" required>
     
     <!-- Grupo de Classificação -->
     <fieldset>
-    <legend><h3>Como você se classifica?</h3> </legend>
-    <div class="checkbox-group">
+      <legend><h3>Como você se classifica?</h3></legend>
+      <div class="checkbox-group">
         <label class="form-check"><input type="checkbox" id="pcd" name="secoes[]" value="PCD"> PCD</label>
         <label class="form-check"><input type="checkbox" id="maker" name="secoes[]" value="MAKER"> Maker</label>
         <label class="form-check"><input type="checkbox" id="familiar" name="secoes[]" value="FAMILIAR"> Familiar</label>
         <label class="form-check"><input type="checkbox" id="especialista_saude" name="secoes[]" value="ESPECIALISTA DA SAÚDE"> Especialista da Saúde</label>
         <label class="form-check"><input type="checkbox" id="fornecedor" name="secoes[]" value="FORNECEDOR"> Fornecedor</label>
-    </div>
-</fieldset>
+      </div>
+    </fieldset>
 
-<!-- Seções dinâmicas - INICIALMENTE OCULTAS -->
-<div id="seção-pcd" class="section">
-    <h3>Seção PCD</h3>
-    <label for="deficiencia">Tipo de Deficiência:</label>
-    <select id="deficiencia" name="pcd_deficiencia">
+    <!-- Seções dinâmicas -->
+    <div id="seção-pcd" class="section">
+      <h3>Seção PCD</h3>
+      <label for="deficiencia">Tipo de Deficiência:</label>
+      <select id="deficiencia" name="pcd_deficiencia">
         <option value="mobilidade">Mobilidade</option>
         <option value="visual">Visual</option>
         <option value="auditiva">Auditiva</option>
         <option value="intelectual">Intelectual</option>
-    </select> <br><br>
-    <label for="limitações">Descrição das limitações:</label>
-    <textarea id="limitações" name="pcd_limitações"></textarea>
-</div>
+      </select><br><br>
+      <label for="limitações">Descrição das limitações:</label>
+      <textarea id="limitações" name="pcd_limitações"></textarea>
+    </div>
 
-<div id="seção-maker" class="section">
-    <h3>Seção Maker</h3>
-    <label for="formacao_maker">Formação Acadêmica:</label>
-    <input type="text" id="formacao_maker" name="maker_projetista_formacao">
-</div>
+    <div id="seção-maker" class="section">
+      <h3>Seção Maker</h3>
+      <label for="formacao_maker">Formação Acadêmica:</label>
+      <input type="text" id="formacao_maker" name="maker_projetista_formacao">
+    </div>
 
-<div id="seção-familiar" class="section">
-    <h3>Seção Familiar</h3>
-    <label for="relacao">Relação com o Deficiente:</label>
-    <input type="text" id="relacao" name="familiar_relacao">
-</div>
+    <div id="seção-familiar" class="section">
+      <h3>Seção Familiar</h3>
+      <label for="relacao">Relação com a Pessoa com Deficiência:</label>
+      <input type="text" id="relacao" name="familiar_relacao" placeholder="Ex: Mãe, Irmão, Cuidador(a)..." required>
 
-<div id="seção-especialista_saude" class="section">
-    <h3>Seção Especialista da Saúde</h3>
-    <label for="formacao_especialista_saude">Formação Acadêmica:</label>
-    <input type="text" id="formacao_especialista_saude" name="especialista_saude_formacao">
-</div>
+      <label for="familiar_deficiencia">Qual a Deficiência da Pessoa?</label>
+      <select id="familiar_deficiencia" name="familiar_deficiencia">
+        <option value="">Selecione...</option>
+        <option value="mobilidade">Mobilidade</option>
+        <option value="visual">Visual</option>
+        <option value="auditiva">Auditiva</option>
+        <option value="intelectual">Intelectual</option>
+        <option value="múltipla">Múltipla</option>
+        <option value="outro">Outro</option>
+      </select>
 
-<div id="seção-fornecedor" class="section">
-    <h3>Seção Fornecedor</h3>
-    <label for="atuacao_fornecedor">Áreas de Atuação:</label>
-    <input type="text" id="atuacao_fornecedor" name="fornecedor_atuacao">
-</div>
+      <label for="descricao_deficiencia_familiar">Descreva, se quiser, a condição:</label>
+      <textarea id="descricao_deficiencia_familiar" name="descricao_deficiencia_familiar" placeholder="Detalhe se desejar..."></textarea>
+    </div>
 
-<button id="btn" type="submit">Cadastrar</button>
+    <div id="seção-especialista_saude" class="section">
+      <h3>Seção Especialista da Saúde</h3>
+      <label for="formacao_especialista_saude">Formação Acadêmica:</label>
+      <input type="text" id="formacao_especialista_saude" name="especialista_saude_formacao">
+    </div>
+
+    <div id="seção-fornecedor" class="section">
+      <h3>Seção Fornecedor</h3>
+      <label for="atuacao_fornecedor">Áreas de Atuação:</label>
+      <input type="text" id="atuacao_fornecedor" name="fornecedor_atuacao">
+    </div>
+
+    <button id="btn" type="submit">Cadastrar</button>
   </form>
 </main>
 
